@@ -1,0 +1,142 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<section id="benefits" class="py-20 bg-gradient-to-br from-secondary-50 to-primary-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {t('benefits.title')}
+      </h2>
+      <div class="w-24 h-1 bg-primary-600 mx-auto rounded-full mb-6"></div>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        लाडकी बहीण योजनेच्या माध्यमातून महिलांना मिळणारे विविध फायदे
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Financial Assistance -->
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">{t('benefits.financial')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.financial.desc')}</p>
+        <div class="mt-6 p-4 bg-primary-50 rounded-lg">
+          <div class="text-2xl font-bold text-primary-600">₹1,500</div>
+          <div class="text-sm text-primary-700">मासिक सहाय्य / Monthly Assistance</div>
+        </div>
+      </div>
+      
+      <!-- Women Empowerment -->
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-16 h-16 bg-secondary-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary-200 transition-colors">
+          <svg class="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">{t('benefits.empowerment')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.empowerment.desc')}</p>
+        <div class="mt-6">
+          <div class="flex items-center text-sm text-secondary-700 mb-2">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            आर्थिक स्वातंत्र्य
+          </div>
+          <div class="flex items-center text-sm text-secondary-700">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            सामाजिक सक्षमीकरण
+          </div>
+        </div>
+      </div>
+      
+      <!-- Social Security -->
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-200 transition-colors">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">{t('benefits.social')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.social.desc')}</p>
+        <div class="mt-6 space-y-2">
+          <div class="flex items-center text-sm text-green-700">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            आरोग्य सुरक्षा
+          </div>
+          <div class="flex items-center text-sm text-green-700">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            शिक्षण सहाय्य
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Eligibility Criteria -->
+    <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg">
+      <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">पात्रता निकष / Eligibility Criteria</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">वय मर्यादा</div>
+              <div class="text-gray-600">२१ ते ६० वर्षे वयोगटातील महिला</div>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">निवास</div>
+              <div class="text-gray-600">महाराष्ट्रातील स्थायी रहिवासी</div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">उत्पन्न मर्यादा</div>
+              <div class="text-gray-600">कुटुंबाचे वार्षिक उत्पन्न २.५ लाखांपेक्षा कमी</div>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">कागदपत्रे</div>
+              <div class="text-gray-600">आधार कार्ड, बँक खाते आवश्यक</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

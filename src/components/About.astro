@@ -1,0 +1,132 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {t('about.title')}
+      </h2>
+      <div class="w-24 h-1 bg-primary-600 mx-auto rounded-full mb-6"></div>
+      <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        {t('about.subtitle')}
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <!-- Description -->
+      <div class="space-y-6">
+        <p class="text-lg text-gray-700 leading-relaxed">
+          {t('about.description')}
+        </p>
+        
+        <!-- Key Features -->
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">महिला सक्षमीकरण / Women Empowerment</h4>
+              <p class="text-gray-600">आर्थिक स्वातंत्र्यासाठी मासिक आर्थिक सहाय्य</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-4 h-4 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">डिजिटल प्रक्रिया / Digital Process</h4>
+              <p class="text-gray-600">सुरक्षित आणि जलद ऑनलाइन eKYC प्रक्रिया</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">पारदर्शकता / Transparency</h4>
+              <p class="text-gray-600">पूर्ण पारदर्शक आणि जबाबदार प्रक्रिया</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics -->
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">योजनेची माहिती / Scheme Details</h3>
+        
+        <div class="grid grid-cols-2 gap-6">
+          <div class="text-center p-4 bg-primary-50 rounded-xl">
+            <div class="text-3xl font-bold text-primary-600 mb-2">{t('about.launched.date')}</div>
+            <div class="text-sm font-medium text-primary-700">{t('about.launched')}</div>
+          </div>
+          
+          <div class="text-center p-4 bg-secondary-50 rounded-xl">
+            <div class="text-3xl font-bold text-secondary-600 mb-2">{t('about.beneficiaries.count')}</div>
+            <div class="text-sm font-medium text-secondary-700">{t('about.beneficiaries')}</div>
+          </div>
+          
+          <div class="text-center p-4 bg-green-50 rounded-xl col-span-2">
+            <div class="text-4xl font-bold text-green-600 mb-2">{t('about.amount.value')}</div>
+            <div class="text-sm font-medium text-green-700">{t('about.amount')}</div>
+          </div>
+        </div>
+        
+        <!-- Government Seal -->
+        <div class="mt-8 text-center">
+          <div class="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="font-semibold">सरकारी मान्यताप्राप्त / Government Approved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8">
+        <div class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">आमचे ध्येय / Our Mission</h3>
+        <p class="text-gray-700 leading-relaxed">
+          महाराष्ट्रातील प्रत्येक पात्र महिलेला आर्थिक सहाय्य पोहोचवून तिचे सक्षमीकरण करणे आणि 
+          समाजात तिची स्थिती मजबूत करणे हे आमचे मुख्य ध्येय आहे.
+        </p>
+      </div>
+      
+      <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-2xl p-8">
+        <div class="w-12 h-12 bg-secondary-600 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">आमची दृष्टी / Our Vision</h3>
+        <p class="text-gray-700 leading-relaxed">
+          एक सशक्त महाराष्ट्र तयार करणे जिथे प्रत्येक महिला आर्थिकदृष्ट्या स्वावलंबी असेल आणि 
+          समाजाच्या विकासात सक्रिय सहभाग घेऊ शकेल.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

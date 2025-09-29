@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ea580c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Ashoka Chakra inspired design -->
+  <circle cx="50" cy="50" r="40" fill="none" stroke="url(#logoGrad)" stroke-width="4"/>
+  <circle cx="50" cy="50" r="8" fill="url(#logoGrad)"/>
+  <!-- Spokes -->
+  <g stroke="url(#logoGrad)" stroke-width="2">
+    <line x1="50" y1="18" x2="50" y2="82"/>
+    <line x1="18" y1="50" x2="82" y2="50"/>
+    <line x1="27.3" y1="27.3" x2="72.7" y2="72.7"/>
+    <line x1="72.7" y1="27.3" x2="27.3" y2="72.7"/>
+  </g>
+  <!-- Maharashtra state outline -->
+  <path d="M35 25 Q50 20 65 25 L70 35 Q65 45 50 50 Q35 45 30 35 Z" fill="rgba(249,115,22,0.3)"/>
+</svg>

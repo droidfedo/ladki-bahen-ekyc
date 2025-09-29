@@ -1,0 +1,115 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<section id="news" class="py-20 bg-gradient-to-br from-secondary-50 to-primary-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {t('news.title')}
+      </h2>
+      <div class="w-24 h-1 bg-primary-600 mx-auto rounded-full mb-6"></div>
+      <p class="text-xl text-gray-600">
+        योजनेशी संबंधित महत्वाच्या बातम्या आणि घोषणा
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- News Item 1 -->
+      <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-sm font-medium text-primary-600 bg-primary-100 px-3 py-1 rounded-full">
+              {currentLang === 'mr' ? 'घोषणा' : 'Announcement'}
+            </span>
+            <time class="text-sm text-gray-500">{t('news.item1.date')}</time>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{t('news.item1.title')}</h3>
+          <p class="text-gray-600 leading-relaxed">{t('news.item1.desc')}</p>
+        </div>
+      </article>
+
+      <!-- News Item 2 -->
+      <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="h-48 bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-sm font-medium text-secondary-600 bg-secondary-100 px-3 py-1 rounded-full">
+              {currentLang === 'mr' ? 'सेवा' : 'Service'}
+            </span>
+            <time class="text-sm text-gray-500">{t('news.item2.date')}</time>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{t('news.item2.title')}</h3>
+          <p class="text-gray-600 leading-relaxed">{t('news.item2.desc')}</p>
+        </div>
+      </article>
+
+      <!-- News Item 3 -->
+      <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">
+              {currentLang === 'mr' ? 'वितरण' : 'Distribution'}
+            </span>
+            <time class="text-sm text-gray-500">{t('news.item3.date')}</time>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{t('news.item3.title')}</h3>
+          <p class="text-gray-600 leading-relaxed">{t('news.item3.desc')}</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Important Notice -->
+    <div class="mt-16 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-8">
+      <div class="flex items-start space-x-4">
+        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-amber-800 mb-2">
+            {currentLang === 'mr' ? 'महत्वाची सूचना' : 'Important Notice'}
+          </h3>
+          <p class="text-amber-700 leading-relaxed">
+            {currentLang === 'mr' 
+              ? 'फसव्या वेबसाइट्स आणि फेक लिंक्सपासून सावध राहा. फक्त अधिकृत सरकारी वेबसाइटच वापरा. कोणत्याही प्रकारची फी भरू नका.' 
+              : 'Beware of fake websites and fraudulent links. Use only official government websites. Do not pay any kind of fees.'
+            }
+          </p>
+          <div class="mt-4 flex items-center space-x-4">
+            <span class="inline-flex items-center text-sm font-medium text-amber-700">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              {currentLang === 'mr' ? 'सुरक्षित वेबसाइट' : 'Secure Website'}
+            </span>
+            <span class="inline-flex items-center text-sm font-medium text-amber-700">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+              </svg>
+              {currentLang === 'mr' ? 'फी नाही' : 'No Fees'}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

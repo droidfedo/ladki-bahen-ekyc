@@ -1,0 +1,316 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<section id="ekyc" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {t('form.title')}
+      </h2>
+      <div class="w-24 h-1 bg-primary-600 mx-auto rounded-full"></div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl p-8 md:p-12">
+      <form id="ekyc-form" class="space-y-6" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullname" class="block text-sm font-semibold text-gray-700 mb-2">
+            {t('form.fullname')} <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="fullname" 
+            name="fullname" 
+            required
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+            placeholder={t('form.fullname.placeholder')}
+          />
+          <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+        </div>
+        
+        <!-- Mobile Number -->
+        <div class="form-group">
+          <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-2">
+            {t('form.mobile')} <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="mobile" 
+            name="mobile" 
+            required
+            pattern="[0-9]{10}"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+            placeholder={t('form.mobile.placeholder')}
+          />
+          <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+        </div>
+        
+        <!-- Aadhar Number -->
+        <div class="form-group">
+          <label for="aadhar" class="block text-sm font-semibold text-gray-700 mb-2">
+            {t('form.aadhar')} <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="aadhar" 
+            name="aadhar" 
+            required
+            pattern="[0-9]{12}"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+            placeholder={t('form.aadhar.placeholder')}
+          />
+          <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+        </div>
+        
+        <!-- Date of Birth -->
+        <div class="form-group">
+          <label for="dob" class="block text-sm font-semibold text-gray-700 mb-2">
+            {t('form.dob')} <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="date" 
+            id="dob" 
+            name="dob" 
+            required
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+          />
+          <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+        </div>
+        
+        <!-- Address -->
+        <div class="form-group">
+          <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">
+            {t('form.address')} <span class="text-red-500">*</span>
+          </label>
+          <textarea 
+            id="address" 
+            name="address" 
+            required
+            rows="4"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none"
+            placeholder={t('form.address.placeholder')}
+          ></textarea>
+          <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+        </div>
+        
+        <!-- Terms and Conditions -->
+        <div class="form-group">
+          <label class="flex items-start space-x-3">
+            <input 
+              type="checkbox" 
+              id="terms" 
+              name="terms" 
+              required
+              class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+            />
+            <span class="text-sm text-gray-600">
+              मी सर्व अटी व शर्ती स्वीकारतो आणि प्रदान केलेली माहिती सत्य आहे याची पुष्टी करतो।
+              <br />
+              <span class="text-xs text-gray-500">
+                I accept all terms and conditions and confirm that the information provided is true.
+              </span>
+            </span>
+          </label>
+          <div class="error-message hidden text-red-500 text-sm mt-1"></div>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="pt-6">
+          <button 
+            type="submit" 
+            class="w-full bg-primary-600 text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+            id="submit-btn"
+          >
+            <span class="flex items-center justify-center">
+              <svg class="w-5 h-5 mr-2 hidden" id="loading-spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              <span id="submit-text">{t('form.submit')}</span>
+            </span>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Success Message -->
+      <div id="success-message" class="hidden mt-8 p-8 bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-2xl shadow-lg">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-green-800 mb-3" id="success-title">{t('form.success.title')}</h3>
+          <p class="text-green-700 mb-6 leading-relaxed" id="success-message-text">{t('form.success.message')}</p>
+          
+          <!-- OTP Button -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://ladakibahin.maharashtra.gov.in/ekyc" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+              <span id="otp-button-text">{t('form.success.otp')}</span>
+            </a>
+            
+            <button 
+              onclick="window.location.reload()" 
+              class="inline-flex items-center px-6 py-4 bg-white text-primary-600 font-semibold rounded-lg border-2 border-primary-600 hover:bg-primary-50 transition-all duration-200"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              {currentLang === 'mr' ? 'नवीन अर्ज' : 'New Application'}
+            </button>
+          </div>
+          
+          <!-- Additional Info -->
+          <div class="mt-6 p-4 bg-white rounded-lg border border-green-200">
+            <div class="flex items-center justify-center text-sm text-green-700">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+              </svg>
+              {currentLang === 'mr' 
+                ? 'अधिकृत महाराष्ट्र सरकार वेबसाइटवर पुनर्निर्देशित करत आहे' 
+                : 'Redirecting to official Maharashtra Government website'
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('ekyc-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = document.getElementById('submit-text') as HTMLSpanElement;
+    const loadingSpinner = document.getElementById('loading-spinner') as HTMLElement;
+    const successMessage = document.getElementById('success-message') as HTMLElement;
+    
+    // Form validation
+    const validateField = (field: HTMLInputElement | HTMLTextAreaElement) => {
+      const formGroup = field.closest('.form-group') as HTMLElement;
+      const errorMessage = formGroup.querySelector('.error-message') as HTMLElement;
+      
+      let isValid = true;
+      let message = '';
+      
+      if (field.hasAttribute('required') && !field.value.trim()) {
+        isValid = false;
+        message = 'हे फील्ड आवश्यक आहे / This field is required';
+      } else if (field.type === 'tel' && field.value && !/^[0-9]{10}$/.test(field.value)) {
+        isValid = false;
+        message = 'कृपया वैध मोबाइल नंबर प्रविष्ट करा / Please enter a valid mobile number';
+      } else if (field.name === 'aadhar' && field.value && !/^[0-9]{12}$/.test(field.value)) {
+        isValid = false;
+        message = 'कृपया वैध आधार नंबर प्रविष्ट करा / Please enter a valid Aadhar number';
+      }
+      
+      if (isValid) {
+        field.classList.remove('border-red-500');
+        field.classList.add('border-green-500');
+        errorMessage.classList.add('hidden');
+      } else {
+        field.classList.remove('border-green-500');
+        field.classList.add('border-red-500');
+        errorMessage.textContent = message;
+        errorMessage.classList.remove('hidden');
+      }
+      
+      return isValid;
+    };
+    
+    // Add real-time validation
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => validateField(input as HTMLInputElement));
+      input.addEventListener('input', () => {
+        if (input.classList.contains('border-red-500')) {
+          validateField(input as HTMLInputElement);
+        }
+      });
+    });
+    
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Validate all fields
+      let isFormValid = true;
+      inputs.forEach(input => {
+        if (!validateField(input as HTMLInputElement)) {
+          isFormValid = false;
+        }
+      });
+      
+      // Check terms checkbox
+      const termsCheckbox = document.getElementById('terms') as HTMLInputElement;
+      if (!termsCheckbox.checked) {
+        isFormValid = false;
+        const termsGroup = termsCheckbox.closest('.form-group') as HTMLElement;
+        const termsError = termsGroup.querySelector('.error-message') as HTMLElement;
+        termsError.textContent = 'कृपया अटी व शर्ती स्वीकारा / Please accept terms and conditions';
+        termsError.classList.remove('hidden');
+      }
+      
+      if (!isFormValid) {
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      loadingSpinner.classList.remove('hidden');
+      submitText.textContent = 'प्रक्रिया करत आहे... / Processing...';
+      
+      // Simulate API call
+      try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Show success message
+        form.style.display = 'none';
+        successMessage.classList.remove('hidden');
+        
+        // Update success message content based on language
+        const currentLang = document.documentElement.lang || 'mr';
+        const successTitle = document.getElementById('success-title');
+        const successMessageText = document.getElementById('success-message-text');
+        const otpButtonText = document.getElementById('otp-button-text');
+        
+        if (currentLang === 'mr') {
+          successTitle.textContent = 'eKYC यशस्वीरित्या पूर्ण झाले!';
+          successMessageText.textContent = 'तुमची माहिती सत्यापनासाठी पाठवली गेली आहे. आता OTP आणि थेट सत्यापनासाठी अंतिम पायऱ्या पूर्ण करा.';
+          otpButtonText.textContent = 'ओटीपी पाठवा';
+        } else {
+          successTitle.textContent = 'eKYC completed successfully!';
+          successMessageText.textContent = 'Your information has been sent for verification. Now Complete the final steps for OTP and live Verification.';
+          otpButtonText.textContent = 'Get OTP';
+        }
+        
+        // Scroll to success message
+        successMessage.scrollIntoView({ behavior: 'smooth' });
+        
+      } catch (error) {
+        console.error('Form submission error:', error);
+        const currentLang = document.documentElement.lang || 'mr';
+        const errorMessage = currentLang === 'mr' 
+          ? 'काही त्रुटी झाली आहे. कृपया पुन्हा प्रयत्न करा.' 
+          : 'An error occurred. Please try again.';
+        alert(errorMessage);
+      } finally {
+        submitBtn.disabled = false;
+        loadingSpinner.classList.add('hidden');
+        submitText.textContent = 'सबमिट करा / Submit';
+      }
+    });
+  });
+</script>

@@ -1,0 +1,95 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<header class="bg-white shadow-lg sticky top-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="/logo.svg" alt="Maharashtra Government" class="h-10 w-10 mr-3" />
+        <div class="text-xl font-bold text-primary-600">
+          {t('hero.title')}
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href={currentLang === 'mr' ? '/' : '/en'} class="text-gray-700 hover:text-primary-600 transition-colors">
+          {t('nav.home')}
+        </a>
+        <a href={currentLang === 'mr' ? '/#ekyc' : '/en#ekyc'} class="text-gray-700 hover:text-primary-600 transition-colors">
+          {t('nav.ekyc')}
+        </a>
+        <a href={currentLang === 'mr' ? '/#about' : '/en#about'} class="text-gray-700 hover:text-primary-600 transition-colors">
+          {t('nav.about')}
+        </a>
+        <a href={currentLang === 'mr' ? '/#contact' : '/en#contact'} class="text-gray-700 hover:text-primary-600 transition-colors">
+          {t('nav.contact')}
+        </a>
+      </div>
+      
+      <!-- Language Switcher -->
+      <div class="flex items-center space-x-4">
+        <div class="relative group">
+          <button class="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+            </svg>
+            <span>{languages[currentLang]}</span>
+          </button>
+          <div class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {Object.entries(languages).map(([lang, name]) => (
+              <a 
+                href={lang === 'mr' ? '/' : `/${lang}`}
+                class={`block px-4 py-2 text-sm hover:bg-gray-100 ${currentLang === lang ? 'bg-primary-50 text-primary-600' : 'text-gray-700'}`}
+              >
+                {name}
+              </a>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button class="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100" id="mobile-menu-button">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+        <a href={currentLang === 'mr' ? '/' : '/en'} class="block px-3 py-2 text-gray-700 hover:text-primary-600">
+          {t('nav.home')}
+        </a>
+        <a href={currentLang === 'mr' ? '/#ekyc' : '/en#ekyc'} class="block px-3 py-2 text-gray-700 hover:text-primary-600">
+          {t('nav.ekyc')}
+        </a>
+        <a href={currentLang === 'mr' ? '/#about' : '/en#about'} class="block px-3 py-2 text-gray-700 hover:text-primary-600">
+          {t('nav.about')}
+        </a>
+        <a href={currentLang === 'mr' ? '/#contact' : '/en#contact'} class="block px-3 py-2 text-gray-700 hover:text-primary-600">
+          {t('nav.contact')}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+  });
+</script>
