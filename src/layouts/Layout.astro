@@ -21,6 +21,11 @@ const t = useTranslations(currentLang);
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Government of Maharashtra" />
     
+    <!-- Search Engine Verification -->
+    <meta name="google-site-verification" content="4lokHJlAmvMiUjovjHOTRlGgTHyFNY08HwqWfGR97S0" />
+    <meta name="yandex-verification" content="5050d123b5ef801e" />
+    <meta name="msvalidate.01" content="C3E9F5F928475C2F0EBF2DE47EE011EC" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
@@ -60,10 +65,10 @@ const t = useTranslations(currentLang);
           "name": "Maharashtra, India"
         },
         "availableLanguage": ["mr", "en"],
-        "url": "https://ladki-bahin-ekyc.netlify.app",
+        "url": "https://ladki-bahin-ekyc.vercel.app/",
         "potentialAction": {
           "@type": "ApplyAction",
-          "target": "https://ladki-bahin-ekyc.netlify.app/#ekyc",
+          "target": "https://ladki-bahin-ekyc.vercel.app/#ekyc",
           "name": "Apply for Ladki Bahin Scheme"
         },
         "offers": {
@@ -116,6 +121,16 @@ const t = useTranslations(currentLang);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <title>{title}</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F68ECXRFNX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F68ECXRFNX');
+    </script>
   </head>
   <body class={currentLang === 'mr' ? 'font-marathi' : 'font-english'}>
     <slot />
