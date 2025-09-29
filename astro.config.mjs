@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 
 export default defineConfig({
-  site: 'https://ladki-bahin-ekyc.netlify.app',
+  site: 'https://ladki-bahen-ekyc.vercel.app',
   integrations: [
     tailwind(),
     sitemap({
